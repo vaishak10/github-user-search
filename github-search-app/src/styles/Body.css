@@ -1,0 +1,9 @@
+.body{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    background-color: hsl(228, 28%, 20%);
+    width: 450px;
+    height: 250px;
+    border-radius: 6px;
+}

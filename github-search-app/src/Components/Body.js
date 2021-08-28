@@ -1,10 +1,12 @@
 import React from "react";
+import '../styles/Body.css';
 
-export class Body extends React.Component {
+export default class Body extends React.Component {
     render(){
         return(
-            <div class="body">
-                <div class="image"></div>
+            <div className="body">
+                <div className="image"><p>image to be inserted</p></div>
+                <div className="profile-details">
                 <div class="body-content">
                     <div class="intro-date">
                         <p>Mr. Vaish</p>
@@ -31,6 +33,7 @@ export class Body extends React.Component {
                     <div class="github"></div>
                     <div class="twitter"></div>
                     <div class="works-at"></div>
+                </div>
                 </div>
             </div>
         );

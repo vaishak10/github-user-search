@@ -1,10 +1,13 @@
-import React from "react";
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/Search.css';
 
-export class Search extends React.Component {
+export default class Search extends React.Component{
     render(){
         return(
             <div class="input-field">
-                <input type="text" placeholder="Enter name here"/>
+                <input type="text" placeholder="Enter name here" className="user-name"/>
+                <input class="btn btn-primary" type="button" value="Search"/>
             </div>
         );
     }

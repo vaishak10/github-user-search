@@ -1,0 +1,32 @@
+input[type=text] {
+    width: 250px;
+    color: #000;
+    background-color: transparent;
+    color: #fff;
+    outline: none;
+    outline-style: none;
+    outline-offset: 0;
+    border:none;
+    padding: 3px 10px;
+}
+
+.input-field {
+    display: grid;
+    place-content: center;
+    grid-template-columns: 1fr 1fr;
+    background-color: hsl(228, 28%, 20%);
+    height:50px;
+    width: 450px;
+    border-radius: 6px;
+}
+.user-name {
+    width: 200px;
+    height: 20px;
+}
+.btn {
+    height: 40px;
+    width: 100px;
+    justify-self: end;
+    position: relative;
+    right: 10px;
+}
