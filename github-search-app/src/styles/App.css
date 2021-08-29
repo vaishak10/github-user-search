@@ -1,0 +1,15 @@
+.container{
+  display: grid;
+  place-content: center;
+  width: -webkit-fill-available;
+  height: 720px;
+}
+.box {
+  display: grid;
+  place-content: center;
+  grid-gap: 6px;
+  width: 500px;
+  border: 1px solid #30363d;
+  height: 400px;
+  border-radius: 6px;
+}
