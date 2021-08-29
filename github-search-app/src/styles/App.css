@@ -7,9 +7,9 @@
 .box {
   display: grid;
   place-content: center;
-  grid-gap: 6px;
-  width: 500px;
+  grid-gap: 15px;
+  width: 575px;
   border: 1px solid #30363d;
-  height: 400px;
+  height: 450px;
   border-radius: 6px;
 }

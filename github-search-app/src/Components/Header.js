@@ -5,8 +5,8 @@ export default class Header extends React.Component {
     render(){
         return(
             <div className="heading">
-                <p>Dev Finder</p>
-                <p>light</p>
+                <h4>Dev Finder</h4>
+                <p className="theme-selector">light</p>
             </div>
         );
     }

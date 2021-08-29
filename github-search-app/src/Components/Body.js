@@ -1,20 +1,21 @@
 import React from "react";
 import '../styles/Body.css';
+import logo from './../images/Octocat.jpg'
 
 export default class Body extends React.Component {
     render(){
         return(
             <div className="body">
-                <div className="image"><p>image to be inserted</p></div>
+                <div className="image"><img src={logo} alt={'logo'} /></div>
                 <div className="profile-details">
-                <div class="body-content">
-                    <div class="intro-date">
-                        <p>Mr. Vaish</p>
-                        <p>25 March 2020</p>
+                <div className="body-content">
+                    <div className="intro-date">
+                        <p className="name">Mr. Vaish</p>
+                        <p className="date">25 March 2020</p>
                     </div>
-                    <p>Mr Vaish</p>
+                    <p>@Vaish</p>
                 </div>
-                <div class="profile-info">
+                <div className="profile-info">
                     <table>
                         <tr>
                             <th>Repos</th>
@@ -28,11 +29,11 @@ export default class Body extends React.Component {
                         </tr>
                     </table>
                 </div>
-                <div class="links">
-                    <div class="location"></div>
-                    <div class="github"></div>
-                    <div class="twitter"></div>
-                    <div class="works-at"></div>
+                <div className="links">
+                    <div className="location"></div>
+                    <div className="github"></div>
+                    <div className="twitter"></div>
+                    <div className="works-at"></div>
                 </div>
                 </div>
             </div>

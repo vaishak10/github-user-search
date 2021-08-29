@@ -1,5 +1,11 @@
+h4 {
+    justify-self: start;
+}
 .heading {
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
+}
+.theme-selector {
+    justify-self: end;
 }
