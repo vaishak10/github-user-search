@@ -17,16 +17,20 @@ export default class Body extends React.Component {
                 </div>
                 <div className="profile-info">
                     <table>
+                        <thead>
                         <tr>
                             <th>Repos</th>
                             <th>Followers</th>
                             <th>Following</th>
                         </tr>
+                        </thead>
+                        <tbody>
                         <tr>
                             <td>14</td>
                             <td>2</td>
                             <td>5</td>
                         </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div className="links">
