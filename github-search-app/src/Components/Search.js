@@ -1,12 +1,17 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Search.css';
+import { MContext } from './MyProvider';
 
-function getName(userName) {
-    fetch(`https://api.github.com/users/${userName}`)
-    .then(response => response.json()) 
-    .then( data => console.log(data))
-    .catch( error => console.error(error));
+async function getName(userName) {
+    try {
+        const response = await fetch(`https://api.github.com/users/${userName}`);
+        const data = await response.json();
+        console.log(data);
+        return data;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 function getUser(){
@@ -15,9 +20,9 @@ function getUser(){
     if (element.value) {
         userName = element.value;
         console.log(userName)
-        getName(userName);
-    }
-    else {
+        let userData = getName(userName);
+        return userData;
+    }  else {
         alert("Enter user name");
     }
 }
@@ -33,7 +38,11 @@ export default class Search extends React.Component{
             <div className="input-field">
                 <span><i className="fa fa-search"></i></span>
                 <input type="text" placeholder="Enter name here" className="user-name"/>
-                <button className="btn btn-primary" onClick={getUser}>Search</button>
+                <MContext.Consumer>
+                    {(context) => (
+                <button className="btn btn-primary" onClick={()=> context.setUserData(getUser())}>Search</button>
+                    )}
+                </MContext.Consumer>
             </div>
         );
     }

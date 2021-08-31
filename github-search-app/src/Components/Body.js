@@ -1,6 +1,7 @@
 import React from "react";
 import '../styles/Body.css';
 import logo from './../images/Octocat.jpg'
+import { MContext } from './MyProvider';
 
 export default class Body extends React.Component {
     render(){
@@ -40,6 +41,9 @@ export default class Body extends React.Component {
                     <div className="works-at"></div>
                 </div>
                 </div>
+                <MContext.Consumer>
+                    {(context) => console.log(context.state.message)}
+                </MContext.Consumer>
             </div>
         );
     }
