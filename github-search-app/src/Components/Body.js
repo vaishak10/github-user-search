@@ -11,7 +11,7 @@ export default class Body extends React.Component {
                 <div className="profile-details">
                 <div className="body-content">
                     <div className="intro-date">
-                        <p className="name">Mr. Vaish</p>
+                        <p className="name">xyz</p>
                         <p className="date">25 March 2020</p>
                     </div>
                     <p>@Vaish</p>
