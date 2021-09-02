@@ -19,7 +19,6 @@ function getUser(){
     let element = document.querySelector('.user-name');
     if (element.value) {
         userName = element.value;
-        console.log(userName)
         let userData = getName(userName);
         return userData;
     }  else {
@@ -32,18 +31,18 @@ if(button){
     button.addEventListener('click',getUser);
 }
 
-export default class Search extends React.Component{
-    render(){
-        return(
-            <div className="input-field">
-                <span><i className="fa fa-search"></i></span>
-                <input type="text" placeholder="Enter name here" className="user-name"/>
-                <MContext.Consumer>
-                    {(context) => (
-                <button className="btn btn-primary" onClick={()=> context.setUserData(getUser())}>Search</button>
-                    )}
-                </MContext.Consumer>
-            </div>
-        );
-    }
+function Search() {
+    return(
+        <div className="input-field">
+            <span><i className="fa fa-search"></i></span>
+            <input type="text" placeholder="Enter name here" className="user-name"/>
+            <MContext.Consumer>
+                {(context) => (
+            <button className="btn btn-primary" onClick={()=> context.setUserData(getUser())}>Search</button>
+                )}
+            </MContext.Consumer>
+        </div>
+    );
 }
+
+export default Search;

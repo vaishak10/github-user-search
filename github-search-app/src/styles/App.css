@@ -2,7 +2,7 @@
   display: grid;
   place-content: center;
   width: -webkit-fill-available;
-  height: 720px;
+  height: 100vh;
 }
 .box {
   display: grid;
