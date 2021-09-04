@@ -22,34 +22,65 @@ export default class Body extends React.Component {
             public_repos:'---',
             followers:'---',
             following:'---',
+            bio:'---',
             avatar:logo,
         };
     }
 
     handleChange = () => {
         let userName;
-        let element = document.querySelector('.user-name');
-        let monthsArray = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        const element = document.querySelector('.user-name');
+        const monthsArray = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
         if (element.value) {
             userName = element.value;
-            let data = getName(userName);
+            const data = getName(userName);
             data.then((response) => {
+                console.log(response);
+                let joinDateStr;
+                let loginName;
+
                 //Set the github acc creation date in the format: date mon year (Ex: 14 Jul 2019)
-                let joinDate = response.created_at.split('-');
-                joinDate[1] = monthsArray[parseInt(joinDate[1])-1];
-                joinDate[2] = parseInt(joinDate[2].slice(0,2));
+                if(response.created_at) {
+                    let joinDate = response.created_at.split('-');
+                    joinDate[1] = monthsArray[parseInt(joinDate[1])-1];
+                    joinDate[2] = parseInt(joinDate[2].slice(0,2));
+                    joinDateStr = 'Joined ' + joinDate.reverse().join(' ');
+                } else {
+                    joinDateStr = '---';
+                }
+
+                if(response.login) {
+                    loginName = '@' + response.login;
+                } else {
+                    loginName = '---';
+                    alert(`User ${userName} not found`);
+                }
+
+                document.querySelector('.name').classList.add('name-style-change');
+                document.querySelector('.date').classList.add('date-style-change');
+                const userInfo = document.querySelectorAll('.user-info');
+                for(let node of userInfo) {
+                    node.classList.add('user-info-style-change');
+                }
 
                 this.setState({
-                    name: response.name,
-                    created_at: 'Joined ' + joinDate.reverse().join(' '),
-                    login: '@' + response.login,
-                    public_repos:response.public_repos,
-                    followers:response.followers,
-                    following:response.following,
-                    avatar: response.avatar_url
+                    name: response.name || '---',
+                    created_at: joinDateStr,
+                    login: loginName,
+                    public_repos:response.public_repos || '---',
+                    followers:response.followers || '---',
+                    following:response.following || '---',
+                    bio:response.bio || 'This profile has no bio',
+                    avatar: response.avatar_url || logo
                 });
             });
         } else {
+            document.querySelector('.name').classList.remove('name-style-change');
+            document.querySelector('.date').classList.remove('date-style-change');
+            const userInfo = document.querySelectorAll('.user-info');
+            for(let node of userInfo) {
+                node.classList.remove('user-info-style-change');
+            }
             this.setState({
                 name: '---',
                 created_at: '---',
@@ -57,9 +88,10 @@ export default class Body extends React.Component {
                 public_repos:'---',
                 followers:'---',
                 following:'---',
+                bio:'---',
                 avatar: logo
             });
-            setTimeout(() => alert("Enter user name"),500);
+            setTimeout(() => alert("Enter user name"),300);
         }
     }
 
@@ -68,11 +100,19 @@ export default class Body extends React.Component {
             <div className="body-contents">
                 <div className="input-field">
                     <span><i className="fa fa-search"></i></span>
-                    <input type="text" placeholder="Enter name here" className="user-name" />
+                    <input type="text" placeholder="Enter username" className="user-name" />
                     <button className="btn btn-primary" onClick={this.handleChange}>Search</button>
                 </div>
                 <div className="body">
-                    <div className="image"><img src={this.state.avatar} alt={'logo'} /></div>
+                    <div className="image">
+                        <img src={this.state.avatar} alt={'logo'} />
+                        <div className="links">
+                            <div className="location"></div>
+                            <div className="github"></div>
+                            <div className="twitter"></div>
+                            <div className="works-at"></div>
+                        </div>
+                    </div>
                     <div className="profile-details">
                         <div className="body-content">
                             <div className="intro-date">
@@ -80,6 +120,9 @@ export default class Body extends React.Component {
                                 <p className="date">{this.state.created_at}</p>
                             </div>
                             <p className="login-name">{this.state.login}</p>
+                        </div>
+                        <div className="bio-info">
+                            <p className="bio">{this.state.bio}</p>
                         </div>
                         <div className="profile-info">
                             <table>
@@ -92,18 +135,12 @@ export default class Body extends React.Component {
                                 </thead>
                                 <tbody>
                                     <tr className="data">
-                                        <td>{this.state.public_repos}</td>
-                                        <td>{this.state.followers}</td>
-                                        <td>{this.state.following}</td>
+                                        <td className="user-info">{this.state.public_repos}</td>
+                                        <td className="user-info">{this.state.followers}</td>
+                                        <td className="user-info">{this.state.following}</td>
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
-                        <div className="links">
-                            <div className="location"></div>
-                            <div className="github"></div>
-                            <div className="twitter"></div>
-                            <div className="works-at"></div>
                         </div>
                     </div>
                 </div>

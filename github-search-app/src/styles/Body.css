@@ -1,5 +1,4 @@
 input[type=text] {
-    width: 250px;
     color: #000;
     background-color: transparent;
     color: #fff;
@@ -9,6 +8,8 @@ input[type=text] {
     border:none;
     padding: 3px 10px;
     font-size: 20px;
+    width: 250px;
+    height: 40px;
 }
 span {
     place-self: center;
@@ -18,14 +19,10 @@ table {
     position: inherit;
     top: 6px;
     border-collapse: separate;
-    border-spacing: 1em 1em;
+    border-spacing: 2.4em 1em;
 }
-tr {
-    font-weight: 500;
-}
-td {
-    font-size: 24px;
-    font-weight: 900;
+th {
+    font-size: 12px;
 }
 tbody{
     position: relative;
@@ -34,6 +31,13 @@ img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
+}
+
+.name,
+.date,
+.login-name,
+.user-info {
+    font-size:14px;
 }
 
 .body-contents {
@@ -54,11 +58,11 @@ img {
     height: 20px;
     align-self: center;
 }
-.login-name{
-    color:blue;
+.login-name {
+    color: #5F85DB;
 }
-.fa{
-    color: blue;
+.fa {
+    color:#5F85DB;
 }
 .btn {
     height: 40px;
@@ -67,13 +71,13 @@ img {
     position: relative;
     right: 10px;
 }
-.body{
+.body {
     display: grid;
-    grid-template-columns: 0.6fr 1.1fr;
+    grid-template-columns: 0.452fr 1fr;
     justify-items: center;
     background-color: hsl(228, 28%, 20%);
     width: 500px;
-    height: 250px;
+    height: 300px;
     border-radius: 6px;
 }
 .body-content {
@@ -81,7 +85,6 @@ img {
 }
 .profile-details {
     display: grid;
-    border-radius: 8px;
 }
 .intro-date {
     grid-template-columns: 1fr 1fr;
@@ -101,19 +104,31 @@ img {
 .date {
     margin-bottom: 0.2rem;
 }
-.name {
-    font-size: 20px;
+.name-style-change {
+    font-size: 20px !important;
     font-weight: bold;
 }
-.date {
-    font-size: 12px;
+.date-style-change {
+    font-size: 12px !important;
     align-self: center;
 }
-.image{
+.user-info-style-change {
+    font-size: 20px !important;
+    font-weight: 900;
+}
+.image {
     position: relative;
-    top: 16px;
+    top: 14px;
 }
 .data {
     position: inherit;
     bottom: 14px;
+}
+.bio-info {
+    width: 285px;
+    height: 50px;
+}
+.bio {
+    font-size:12px;
+    margin-bottom: 0;
 }
