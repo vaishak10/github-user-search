@@ -5,7 +5,7 @@ function Header() {
     return(
         <div className="heading">
             <h4>Github User Search</h4>
-            <p className="theme-selector">light</p>
+            <p className="theme-selector"></p>
         </div>
     );
 }
