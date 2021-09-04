@@ -1,6 +1,7 @@
 # github-user-search
 A simple single page application to get basic profile information of github users.
 
+**Live site URL:** [github-user-search](https://github-user-search-teal.vercel.app/)
 ## Snapshot
 
 ![github-user-search](github-search-2.PNG)
