@@ -24,6 +24,7 @@ export default class Body extends React.Component {
             following:'---',
             bio:'---',
             avatar:logo,
+            url:'#'
         };
     }
 
@@ -71,7 +72,8 @@ export default class Body extends React.Component {
                     followers:response.followers || '---',
                     following:response.following || '---',
                     bio:response.bio || 'This profile has no bio',
-                    avatar: response.avatar_url || logo
+                    avatar: response.avatar_url || logo,
+                    url:response.html_url
                 });
             });
         } else {
@@ -119,7 +121,7 @@ export default class Body extends React.Component {
                                 <p className="name">{this.state.name}</p>
                                 <p className="date">{this.state.created_at}</p>
                             </div>
-                            <p className="login-name">{this.state.login}</p>
+                            <a href={this.state.url} target="_blank"><p className="login-name">{this.state.login}</p></a>
                         </div>
                         <div className="bio-info">
                             <p className="bio">{this.state.bio}</p>
