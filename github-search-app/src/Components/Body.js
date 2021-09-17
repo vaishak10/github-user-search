@@ -121,7 +121,7 @@ export default class Body extends React.Component {
                                 <p className="name">{this.state.name}</p>
                                 <p className="date">{this.state.created_at}</p>
                             </div>
-                            <a href={this.state.url} target="_blank"><p className="login-name">{this.state.login}</p></a>
+                            <a href={this.state.url} target="_blank" rel="noopener noreferrer"><p className="login-name">{this.state.login}</p></a>
                         </div>
                         <div className="bio-info">
                             <p className="bio">{this.state.bio}</p>
